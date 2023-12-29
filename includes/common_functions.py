@@ -3,16 +3,34 @@ from pyspark.sql import DataFrame
 from pyspark.sql.functions import current_timestamp
 
 
-def add_ingestion_date(input_df: DataFrame) -> DataFrame:
+def add_ingestion_date(dataframe: DataFrame) -> DataFrame:
     """
-        This function is adding an ingestion date to a Dataframe
+    Adds an ingestion date column to a PySpark DataFrame.
 
-        Parameters:
-            input_df (spark.DataFrame): The Spark Dataframe where the ingestion date is going to be added.
+    Parameters:
+    - dataframe (DataFrame): The PySpark DataFrame to which the ingestion date column will be added.
 
-        Returns:
-            The Spark Dataframe with ingestion data column.
+    Returns:
+    DataFrame: The PySpark DataFrame with the addition of an 'ingestion_date' column containing current timestamps.
     """
+
+    return dataframe.withColumn("ingestion_date", current_timestamp())
+
+
+def rename_columns(dataframe: DataFrame, column_mapping_names: dict) -> DataFrame:
+    """
+    Rename columns in a PySpark DataFrame based on the provided mapping.
+
+    Parameters:
+    - dataframe (DataFrame): The PySpark DataFrame to be modified.
+    - column_mapping (dict): A dictionary mapping old column names to new column names.
+
+    Returns:
+    DataFrame: The PySpark DataFrame with columns renamed according to the provided mapping.
+    """
+    for old_column, new_column in column_mapping_names.items():
+        dataframe = dataframe.withColumnRenamed(old_column, new_column)
     
-    return input_df.withColumn("ingestion_date", current_timestamp())
+    return dataframe
+
     
