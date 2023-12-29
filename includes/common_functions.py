@@ -43,9 +43,5 @@ def drop_columns(dataframe: DataFrame, columns_to_drop: list) -> DataFrame:
     Returns:
     DataFrame: The PySpark DataFrame with specified columns dropped.
     """
-    
+
     return dataframe.drop(*columns_to_drop)
-
-
-
-    
