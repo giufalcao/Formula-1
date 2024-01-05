@@ -216,13 +216,3 @@ qualifyId INT,
 raceId INT)
 USING json
 OPTIONS (path "../data/qualifying", multiLine true)
-
--- COMMAND ----------
-
-SELECT * FROM f1_raw.qualifying
-
--- COMMAND ----------
-
-DESC EXTENDED f1_raw.qualifying;
-
--- COMMAND ----------
