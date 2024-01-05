@@ -23,7 +23,7 @@ v_file_date = dbutils.widgets.get("p_file_date")
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ##### Step 1 - Read the JSON file using the spark dataframe reader API, include additional configurations and common functions, and read data from the spark-warehouse database
+# MAGIC ##### Step 1 - Read the JSON file using the spark dataframe reader API, include additional configurations and common functions
 
 # COMMAND ----------
 
