@@ -226,5 +226,3 @@ SELECT * FROM f1_raw.qualifying
 DESC EXTENDED f1_raw.qualifying;
 
 -- COMMAND ----------
-
-
