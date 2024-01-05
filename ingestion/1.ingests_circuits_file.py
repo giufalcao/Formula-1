@@ -59,10 +59,6 @@ circuits_df = spark.read \
 
 # COMMAND ----------
 
-from pyspark.sql.functions import col
-
-# COMMAND ----------
-
 circuits_column_mapping = {
     "circuitId": "circuit_id",
     "circuitRef": "circuit_ref",
@@ -71,11 +67,21 @@ circuits_column_mapping = {
     "alt": "altitude"
 }
 
+# COMMAND ----------
+
 columns_to_drop = ['url']
 
+# COMMAND ----------
+
 circuits_df = rename_columns(circuits_df, circuits_column_mapping)
+
+# COMMAND ----------
+
 circuits_df = drop_columns(circuits_df, columns_to_drop)
-circuits_final_df = add_ingestion_date(circuits_renamed_df)
+
+# COMMAND ----------
+
+circuits_df = add_ingestion_date(circuits_df)
 
 # COMMAND ----------
 
@@ -85,3 +91,7 @@ circuits_final_df = add_ingestion_date(circuits_renamed_df)
 # COMMAND ----------
 
 circuits_df.write.mode("overwrite").parquet(f"{processed_folder_path}/circuits")
+
+# COMMAND ----------
+
+dbutils.notebook.exit("Success")
