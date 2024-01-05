@@ -70,7 +70,10 @@ The data from Ergest Developer API is imported into raw ADLS container on Azure.
 
 ## Technologies Used:
 - Datadricks
-- Azure
-- ADF
 - PySpark
 - Python
+- Power BI (Visualizations)
+- Azure Databricks
+- Azure Data lake gen2
+- Azure Data Factory (Pipeline Scheduling)
+- Azure key- Vault
