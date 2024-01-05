@@ -3,25 +3,6 @@ from pyspark.sql import SparkSession
 from pyspark.sql import DataFrame
 from pyspark.sql.functions import current_timestamp
 
-def create_spark_context(app_name: str, warehouse_location: str = None) -> SparkSession:
-    """
-    Create a Spark session with optional configuration for the Warehouse location.
-
-    Parameters:
-    - app_name (str): The name of the Spark application.
-    - warehouse_location (str): The path to the existing Spark Warehouse.
-
-    Returns:
-    - SparkSession: The Spark session object.
-    """
-    spark = SparkSession.builder \
-        .appName(app_name) 
-
-    if warehouse_location:
-        spark.config("spark.sql.warehouse.dir", warehouse_location)
-
-    return spark.getOrCreate()
-
 def add_ingestion_date(dataframe: DataFrame) -> DataFrame:
     """
     Adds an ingestion date column to a PySpark DataFrame.
