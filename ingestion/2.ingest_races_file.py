@@ -23,7 +23,7 @@ v_file_date = dbutils.widgets.get("p_file_date")
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ##### Step 1 - Read the CSV file using the spark dataframe reader API
+# MAGIC ##### Step 1 - Read the CSV file using the spark dataframe reader, include  additional configurations and common functions
 
 # COMMAND ----------
 

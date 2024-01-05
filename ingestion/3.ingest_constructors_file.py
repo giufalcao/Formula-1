@@ -23,7 +23,7 @@ v_file_date = dbutils.widgets.get("p_file_date")
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ##### Step 1 - Read the JSON file using the spark dataframe reader
+# MAGIC ##### Step 1 - Read the JSON file using the spark dataframe reader, include  additional configurations and common functions
 
 # COMMAND ----------
 
@@ -48,7 +48,7 @@ constructor_df = spark.read \
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ##### Step 2 - Drop unwanted columns from the dataframe
+# MAGIC ##### Step 2 - Rename and drop columns, and add new columns
 
 # COMMAND ----------
 
@@ -81,7 +81,7 @@ constructor_df = add_ingestion_date(constructor_df)
 # COMMAND ----------
 
 # MAGIC %md
-# MAGIC ##### Step 4 Write output to parquet file
+# MAGIC ##### Step 4 - Write output to parquet file
 
 # COMMAND ----------
 
